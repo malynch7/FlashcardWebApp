@@ -5,7 +5,7 @@ import { NextPage } from "next";
 const Practice: NextPage = () => {
     return (
         <main className={styles.main}>
-            <h1>Play Page</h1>
+            <h1>Practice Page</h1>
         </main>
     );
 };

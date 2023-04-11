@@ -1,12 +1,11 @@
 import styles from "@/styles/Home.module.css";
-import { Button, Link } from "@mui/material";
+import { Button, Link, Typography } from "@mui/material";
 import { NextPage } from "next";
-
 
 const Home: NextPage = () => {
     return (
         <div className={styles.main}>
-            <h1>Welcome to Flashcard App!</h1>
+            <Typography variant="h3">Welcome to Flashcard App!</Typography>
             <div className={styles.button_group}>
                 <Link href="/play">
                     <Button variant="contained">Play</Button>

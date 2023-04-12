@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/Navbar/Navbar";
 import "@/styles/globals.css";
 import { theme } from "@/styles/theme";
 import { Container, CssBaseline, ThemeProvider } from "@mui/material";
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
+                <Navbar />
                 <Container>
                     <Component {...pageProps} />{" "}
                 </Container>

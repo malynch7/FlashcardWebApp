@@ -1,0 +1,14 @@
+.appbar {
+    position: static;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.primary_button_group {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}

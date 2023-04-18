@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent } from "@mui/material";
+import { Card, CardActions, CardContent, Typography } from "@mui/material";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import styles from "./FlashcardCard.module.css";
 import { FC } from "react";
@@ -24,6 +24,7 @@ export const FlashcardCard: FC<FlashcardCardProps> = (props) => {
                     <p>{props.flashcard.frontText}</p>
                 </CardContent>
                 <CardActions className={styles.actions}>
+                    <Typography variant="subtitle2">Answer</Typography>
                     <ArrowRightAltIcon />
                 </CardActions>
             </Card>
@@ -34,6 +35,7 @@ export const FlashcardCard: FC<FlashcardCardProps> = (props) => {
                     </p>
                 </CardContent>
                 <CardActions className={styles.actions}>
+                    <Typography variant="subtitle2">Question</Typography>
                     <ArrowRightAltIcon />
                 </CardActions>
             </Card>

@@ -1,6 +1,6 @@
 :root {
-    --background-start-rgb: white;
-    --background-end-rgb: grey;
+    --background-start-rgb: whitesmoke;
+    --background-end-rgb: lightgrey;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,9 +23,9 @@ body {
 
 body {
     background: linear-gradient(
-        to top right,
-        var(--background-end-rgb),
-        var(--background-start-rgb)
+        to bottom,
+        var(--background-start-rgb),
+        var(--background-end-rgb)
     );
 }
 

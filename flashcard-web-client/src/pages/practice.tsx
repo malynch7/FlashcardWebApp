@@ -1,6 +1,7 @@
 import { FlashcardCard } from "@/components/cards/Flashcard/FlashcardCard";
 import { Flashcard } from "@/models/Flashcard";
 import styles from "@/styles/Practice.module.css";
+import { Typography } from "@mui/material";
 import { NextPage } from "next";
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ const Practice: NextPage = () => {
 
     return (
         <main className={styles.main}>
-            <h1>Practice Page</h1>
+            <Typography variant="h2">Practice</Typography>
             <FlashcardCard flashcard={currentCard} />
         </main>
     );

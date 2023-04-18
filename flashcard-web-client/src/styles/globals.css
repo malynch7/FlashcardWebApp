@@ -23,10 +23,10 @@ body {
 
 body {
     background: linear-gradient(
-            to top right,
-            var(--background-end-rgb),
-            var(--background-start-rgb)
-        );
+        to top right,
+        var(--background-end-rgb),
+        var(--background-start-rgb)
+    );
 }
 
 a {

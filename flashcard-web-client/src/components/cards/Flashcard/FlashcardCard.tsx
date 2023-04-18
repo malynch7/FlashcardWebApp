@@ -1,4 +1,4 @@
-import { Box, Card, CardActions, CardContent } from "@mui/material";
+import { Card, CardActions, CardContent } from "@mui/material";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import styles from "./FlashcardCard.module.css";
 import { FC, useState } from "react";

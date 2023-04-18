@@ -3,6 +3,6 @@ import { User } from "./User";
 
 export interface FlashcardDeck {
     id: number;
-    author: User;
+    author?: User;
     cards: Flashcard[];
 }

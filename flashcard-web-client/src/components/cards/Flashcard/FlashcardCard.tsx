@@ -1,24 +1,22 @@
 import { Card, CardActions, CardContent } from "@mui/material";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import styles from "./FlashcardCard.module.css";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Flashcard } from "@/models/Flashcard";
 
 interface FlashcardCardProps {
     flashcard: Flashcard;
+    isFlipped: boolean;
+    handleFlip: Function;
 }
 
 export const FlashcardCard: FC<FlashcardCardProps> = (props) => {
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const handleFlip = () => {
-        setIsFlipped(!isFlipped);
-    };
-
     return (
         <div
-            onClick={handleFlip}
-            className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}
+            onClick={() => props.handleFlip()}
+            className={`${styles.card} ${
+                props.isFlipped ? styles.flipped : ""
+            }`}
         >
             <Card className={styles.front}>
                 <CardContent className={styles.content}>

@@ -31,19 +31,23 @@ const Practice: NextPage = () => {
     };
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [currentCardIsFlipped, setCurrentCardIsFlipped] = useState(false);
+    const [currentCardBackHidden, setCurrentCardBackHidden] = useState(true);
 
     const getNextCard = () => {
-        if (currentCardIndex > demoDeck.cards.length - 1) return;
+        if (currentCardIndex > demoDeck.cards.length - 2) return;
+        setCurrentCardBackHidden(true);
         setCurrentCardIsFlipped(false);
         setCurrentCardIndex((currentCardIndex) => currentCardIndex + 1);
     };
     const getPreviousCard = () => {
         if (currentCardIndex < 1) return;
+        setCurrentCardBackHidden(true);
         setCurrentCardIsFlipped(false);
         setCurrentCardIndex((currentCardIndex) => currentCardIndex - 1);
     };
 
     const handleFlip = () => {
+        setCurrentCardBackHidden(false);
         setCurrentCardIsFlipped(!currentCardIsFlipped);
     };
 
@@ -54,6 +58,7 @@ const Practice: NextPage = () => {
                 flashcard={demoDeck.cards[currentCardIndex]}
                 isFlipped={currentCardIsFlipped}
                 handleFlip={handleFlip}
+                backHidden={currentCardBackHidden}
             />
             <Box className={styles.controls}>
                 <IconButton

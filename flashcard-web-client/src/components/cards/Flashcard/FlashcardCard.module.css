@@ -21,6 +21,9 @@
 
 .content {
     flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;;
 }
 
 .actions {
@@ -33,4 +36,8 @@
 
 .back {
     transform: rotateY(180deg);
+}
+
+.hidden {
+    display: none;
 }

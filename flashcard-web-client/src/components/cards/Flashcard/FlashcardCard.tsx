@@ -8,6 +8,7 @@ interface FlashcardCardProps {
     flashcard: Flashcard;
     isFlipped: boolean;
     handleFlip: Function;
+    backHidden: boolean;
 }
 
 export const FlashcardCard: FC<FlashcardCardProps> = (props) => {
@@ -28,7 +29,9 @@ export const FlashcardCard: FC<FlashcardCardProps> = (props) => {
             </Card>
             <Card className={styles.back}>
                 <CardContent className={styles.content}>
-                    <p>{props.flashcard.backText}</p>
+                    <p className={props.backHidden ? styles.hidden : ""}>
+                        {props.flashcard.backText}
+                    </p>
                 </CardContent>
                 <CardActions className={styles.actions}>
                     <ArrowRightAltIcon />

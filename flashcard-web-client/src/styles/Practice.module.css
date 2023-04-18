@@ -11,3 +11,9 @@
     display: flex;
     justify-content: space-around;
 }
+
+@media (max-width: 600px) {
+    .main {
+        padding: 2rem;
+    }
+}

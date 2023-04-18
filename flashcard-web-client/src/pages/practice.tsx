@@ -5,6 +5,7 @@ import { NextPage } from "next";
 import { useState } from "react";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import Tooltip from "@mui/material/Tooltip";
 import FlipIcon from "@mui/icons-material/Flip";
 import { FlashcardDeck } from "@/models/FlashcardDeck";
 
@@ -61,21 +62,27 @@ const Practice: NextPage = () => {
                 backHidden={currentCardBackHidden}
             />
             <Box className={styles.controls}>
-                <IconButton
-                    onClick={getPreviousCard}
-                    disabled={currentCardIndex < 1}
-                >
-                    <NavigateBeforeIcon />
-                </IconButton>
-                <IconButton onClick={handleFlip}>
-                    <FlipIcon />
-                </IconButton>
-                <IconButton
-                    onClick={getNextCard}
-                    disabled={currentCardIndex > demoDeck.cards.length - 2}
-                >
-                    <NavigateNextIcon />
-                </IconButton>
+                <Tooltip title="Previous">
+                    <IconButton
+                        onClick={getPreviousCard}
+                        disabled={currentCardIndex < 1}
+                    >
+                        <NavigateBeforeIcon />
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Flip">
+                    <IconButton onClick={handleFlip}>
+                        <FlipIcon />
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Next">
+                    <IconButton
+                        onClick={getNextCard}
+                        disabled={currentCardIndex > demoDeck.cards.length - 2}
+                    >
+                        <NavigateNextIcon />
+                    </IconButton>
+                </Tooltip>
             </Box>
         </main>
     );

@@ -10,8 +10,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import styles from "./Navbar.module.css";
 import { FC } from "react";
 import Link from "next/link";
+import {
+    AuthenticatedTemplate,
+    UnauthenticatedTemplate,
+    useMsal,
+} from "@azure/msal-react";
 
 export const Navbar: FC = () => {
+    const { instance, accounts } = useMsal();
+
     return (
         <AppBar className={styles.appbar}>
             <Toolbar className={styles.toolbar}>
@@ -36,7 +43,17 @@ export const Navbar: FC = () => {
                     </Link>
                 </Box>
                 <Box className={styles.secondary_button_group}>
-                    <Button color="inherit">Login</Button>
+                    <AuthenticatedTemplate>
+                        <Button color="inherit">{accounts[0]?.username}</Button>
+                    </AuthenticatedTemplate>
+                    <UnauthenticatedTemplate>
+                        <Button
+                            onClick={() => instance.loginRedirect()}
+                            color="inherit"
+                        >
+                            Login
+                        </Button>
+                    </UnauthenticatedTemplate>
                 </Box>
             </Toolbar>
         </AppBar>

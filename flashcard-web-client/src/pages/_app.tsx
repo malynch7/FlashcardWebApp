@@ -1,6 +1,8 @@
 import { Navbar } from "@/components/Navbar/Navbar";
 import "@/styles/globals.css";
 import { theme } from "@/styles/theme";
+import { Configuration, PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
 import {
     Container,
     CssBaseline,
@@ -9,6 +11,15 @@ import {
 } from "@mui/material";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+
+// MSAL configuration
+const configuration: Configuration = {
+    auth: {
+        clientId: "Tal8Q~KOkYKm2F1S9gDoH62trh2oGKDMMjEZxa.l",
+    },
+};
+
+const msalInstance = new PublicClientApplication(configuration);
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
@@ -24,11 +35,13 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
             <ThemeProvider theme={theme}>
                 <StyledEngineProvider injectFirst>
-                    <CssBaseline />
-                    <Navbar />
-                    <Container>
-                        <Component {...pageProps} />{" "}
-                    </Container>
+                    <MsalProvider instance={msalInstance}>
+                        <CssBaseline />
+                        <Navbar />
+                        <Container>
+                            <Component {...pageProps} />{" "}
+                        </Container>
+                    </MsalProvider>
                 </StyledEngineProvider>
             </ThemeProvider>
         </>

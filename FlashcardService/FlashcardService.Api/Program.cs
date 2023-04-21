@@ -1,6 +1,34 @@
+using FlashcardService.Application.Services;
+using FlashcardService.Domain.Repositories;
+using FlashcardService.Domain.Services;
+using FlashcardService.Infrastructure.Data;
+using FlashcardService.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// SERVICES
+builder.Services.AddScoped<IUserService, UserService>();
+
+// REPOSITORIES
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// EF
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<FlashcardDbContext>(x => x.UseSqlServer(connectionString));
+
+// CORS
+const string CORS_POLICY = "FlashcardCorsPolicy";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: CORS_POLICY,
+                      corsPolicyBuilder =>
+                      {
+                          corsPolicyBuilder.AllowAnyOrigin();
+                          corsPolicyBuilder.AllowAnyMethod();
+                          corsPolicyBuilder.AllowAnyHeader();
+                      });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

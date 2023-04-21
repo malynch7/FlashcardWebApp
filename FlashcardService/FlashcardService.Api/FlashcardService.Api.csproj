@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FlashcardService.Application\FlashcardService.Application.csproj" />
+    <ProjectReference Include="..\FlashcardService.Domain\FlashcardService.Domain.csproj" />
+    <ProjectReference Include="..\FlashcardService.Infrastructure\FlashcardService.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

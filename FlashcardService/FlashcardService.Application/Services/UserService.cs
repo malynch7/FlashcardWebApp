@@ -10,7 +10,8 @@ namespace FlashcardService.Application.Services
         private readonly IUserRepository _userRepository;
 
 
-        public UserService(IUserRepository userRepository) {
+        public UserService(IUserRepository userRepository)
+        {
             _userRepository = userRepository;
         }
 
